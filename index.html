@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dellafina Coffee | Máquinas Italianas de Café Premium</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1a1a1a;
+            color: #e5e5e5;
+            scroll-behavior: smooth;
+        }
+        
+        .logo-placeholder {
+            width: 120px;
+            height: 60px;
+            background-color: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1517705008128-361805f42e86?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .machine-card {
+            transition: all 0.3s ease;
+            border: 1px solid #3a3a3a;
+            background-color: #2d2d2d;
+        }
+        
+        .machine-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .bg-beige {
+            background-color: #2d2d2d;
+        }
+        
+        .text-beige {
+            color: #d4b78f;
+        }
+        
+        .border-beige {
+            border-color: #d4b78f;
+        }
+        
+        .highlight {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .highlight:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30%;
+            background-color: rgba(212, 183, 143, 0.3);
+            z-index: -1;
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px rgba(0,0,0,0.3);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+        
+        .whatsapp-button {
+            background-color: #25d366;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-button:hover {
+            background-color: #128C7E;
+        }
+        
+        .playfair {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .border-amber-900 {
+            border-color: #92400e;
+        }
+        
+        .text-amber-900 {
+            color: #d4b78f;
+        }
+        
+        .bg-amber-900 {
+            background-color: #3a1f04;
+        }
+        
+        .rental-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #5a7d4e;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .sale-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #92400e;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .brand-name {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-weight: 300;
+            font-size: 1.5rem;
+            color: #d4b78f;
+            margin-left: 12px;
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Botão Flutuante -->
+    <a href="https://wa.me/5511978483899" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header class="bg-gray-900 shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <div class="logo-placeholder">
+                        <img src="logo.png" alt="Dellafina Coffee Logo" class="h-12">
+                    </div>
+                    <span class="brand-name">Dellafina Coffee</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#machines" class="text-gray-300 hover:text-amber-900 transition">Máquinas</a>
+                    <a href="#benefits" class="text-gray-300 hover:text-amber-900 transition">Vantagens</a>
+                    <a href="#contact" class="text-gray-300 hover:text-amber-900 transition">Contato</a>
+                    <a href="https://wa.me/5511978483899" class="whatsapp-button text-white font-bold py-2 px-6 rounded-full transition duration-300 text-sm flex items-center">
+                        <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+                    </a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-gray-300 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-20 md:py-32">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-beige font-light mb-4 text-xl tracking-widest">AUTÊNTICO SABOR ITALIANO</p>
+            <h2 class="text-4xl md:text-6xl font-bold mb-8 playfair">Experiência Premium <span class="highlight">em Café Italiano</span></h2>
+            <p class="text-xl md:text-2xl mb-12 max-w-3xl mx-auto">Máquinas profissionais Italian Coffee disponíveis para venda ou locação que transformam seu negócio com o melhor espresso.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#machines" class="bg-transparent hover:bg-white hover:text-gray-900 text-white font-bold py-4 px-8 rounded-full transition duration-300 inline-flex items-center justify-center border border-white">
+                    Conheça nossas máquinas <i class="fas fa-arrow-down ml-2"></i>
+                </a>
+                <a href="https://wa.me/5511978483899" class="whatsapp-button text-white font-bold py-4 px-8 rounded-full transition duration-300 inline-flex items-center justify-center">
+                    <i class="fab fa-whatsapp mr-2"></i> Fale pelo WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Maquinário Section -->
+    <section id="machines" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl md:text-4xl font-bold text-white mb-4 playfair">Máquinas Profissionais</h3>
+                <div class="w-24 h-1 bg-amber-900 mx-auto"></div>
+                <p class="text-gray-300 mt-4 max-w-2xl mx-auto">Tecnologia italiana para o café perfeito em seu estabelecimento - disponíveis para venda ou locação</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Robocoffee -->
+                <div class="machine-card rounded-lg overflow-hidden shadow-lg relative">
+                    <div class="rental-badge">DISPONÍVEL PARA LOCAÇÃO</div>
+                    <div class="h-64 bg-gray-700 flex items-center justify-center p-6">
+                        <img src="robocoffee.png" alt="Italian Coffee Robocoffee" class="h-full object-contain">
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-2xl font-bold text-white mb-2">ITALIAN COFFEE ROBOCOFFEE</h4>
+                        <p class="text-gray-300 mb-6">Máquina profissional para café em sachê padrão E.S.E. com reservatório de água interno e esquentador de xícara.</p>
+                        <ul class="mb-6 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-amber-900 mt-1 mr-2"></i>
+                                <span class="text-gray-300">Padrão E.S.E. (Easy Serving Espresso)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-amber-900 mt-1 mr-2"></i>
+                                <span class="text-gray-300">Reservatório de água interno</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-amber-900 mt-1 mr-2"></i>
+                                <span class="text-gray-300">Esquentador de xícara integrado</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-amber-900 mt-1 mr-2"></i>
+                                <span class="text-gray-300">Opções flexíveis de locação</span>
+                            </li>
+                        </ul>
+                        <div class="flex justify-between items-center">
+                            <span class="text-amber-900 font-bold text-xl">Consulte condições</span>
+                            <a href="https://wa.me/5511978483899?text=Olá%20Aguinaldo,%20tenho%20interesse%20na%20locação%20da%20máquina%20Robocoffee" class="whatsapp-button text-white font-bold py-2 px-6 rounded-full transition duration-300 text-sm flex items-center">
+                                <i class="fab fa-whatsapp mr-2"></i> Consultar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Duetto -->
+                <div class="machine-card rounded-lg overflow-hidden shadow-lg relative">
+                    <div class="sale-badge">DISPONÍVEL PARA VENDA</div>
+                    <div class="h-64 bg-gray-700 flex items-center justify-center p-6">
+                        <img src="anothercoffee.png" alt="Italian Coffee Duetto" class="h-full object-contain">
+                    </div>
+                    <div class="p-8">
+                        <h4 class="text-2xl font-bold text-white mb-2">ITALIAN COFFEE DUETTO</h4>
+                        <p class="text-gray-300 mb-6">Máquina profissional com dois grupos de café e um grupo exclusivo para vapor e água quente.</p>
+                        <ul class="mb-6 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-amber-900 mt-1 mr-2"></i>
+                                <span class="text-gray-300">Dois grupos de café independentes</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-amber-900 mt-1 mr-2"></i>
+                                <span class="text-gray-300">Grupo exclusivo para vapor và água quente</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-amber-900 mt-1 mr-2"></i>
+                                <span class="text-gray-300">Alta capacidade de produção</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-amber-900 mt-1 mr-2"></i>
+                                <span class="text-gray-300">Condições especiais de pagamento</span>
+                            </li>
+                        </ul>
+                        <div class="flex justify-between items-center">
+                            <span class="text-amber-900 font-bold text-xl">Consulte valores</span>
+                            <a href="https://wa.me/5511978483899?text=Olá%20Aguinaldo,%20tenho%20interesse%20na%20compra%20da%20máquina%20Duetto" class="whatsapp-button text-white font-bold py-2 px-6 rounded-full transition duration-300 text-sm flex items-center">
+                                <i class="fab fa-whatsapp mr-2"></i> Consultar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <h4 class="text-2xl font-bold text-white mb-6">Não sabe qual máquina escolher?</h4>
+                <p class="text-gray-300 mb-6 max-w-2xl mx-auto">Temos diversas opções de máquinas profissionais disponíveis tanto para venda quanto para locação.</p>
+                <a href="https://wa.me/5511978483899?text=Olá%20Aguinaldo,%20gostaria%20de%20saber%20qual%20máquina%20é%20melhor%20para%20meu%20negócio" class="whatsapp-button text-white font-bold py-4 px-8 rounded-full transition duration-300 inline-flex items-center mx-auto">
+                    <i class="fab fa-whatsapp mr-2"></i> Fale com nosso especialista
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beneficios Section -->
+    <section id="benefits" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl md:text-4xl font-bold text-white mb-4 playfair">Vantagens Dellafina</h3>
+                <div class="w-24 h-1 bg-amber-900 mx-auto"></div>
+                <p class="text-gray-300 mt-4 max-w-2xl mx-auto">Por que escolher nossas máquinas de café italianas</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-800 p-8 rounded-lg text-center border border-amber-900 border-opacity-20">
+                    <div class="w-16 h-16 bg-amber-900 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-medal text-white text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4 text-white">Qualidade Premium</h4>
+                    <p class="text-gray-300 mb-6">Máquinas fabricadas na Itália com componentes de alta durabilidade e precisão.</p>
+                    <a href="https://wa.me/5511978483899?text=Olá%20Aguinaldo,%20gostaria%20de%20saber%20mais%20sobre%20a%20qualidade%20das%20máquinas" class="text-amber-900 font-semibold hover:underline inline-flex items-center">
+                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <div class="bg-gray-800 p-8 rounded-lg text-center border border-amber-900 border-opacity-20">
+                    <div class="w-16 h-16 bg-amber-900 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-coffee text-white text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4 text-white">Sabor Autêntico</h4>
+                    <p class="text-gray-300 mb-6">Tecnologia que preserva todo o aroma e sabor dos melhores grãos de café.</p>
+                    <a href="https://wa.me/5511978483899?text=Olá%20Aguinaldo,%20quero%20oferecer%20o%20melhor%20café%20aos%20meus%20clientes" class="text-amber-900 font-semibold hover:underline inline-flex items-center">
+                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <div class="bg-gray-800 p-8 rounded-lg text-center border border-amber-900 border-opacity-20">
+                    <div class="w-16 h-16 bg-amber-900 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-hand-holding-usd text-white text-2xl"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-4 text-white">Flexibilidade</h4>
+                    <p class="text-gray-300 mb-6">Opções de locação, comodato ou venda para atender sua necessidade financeira.</p>
+                    <a href="https://wa.me/5511978483899?text=Olá%20Aguinaldo,%20quero%20conhecer%20as%20opções%20de%20pagamento" class="text-amber-900 font-semibold hover:underline inline-flex items-center">
+                        Saiba mais <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Avaliações -->
+    <section class="py-20 bg-amber-900 text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h3 class="text-3xl md:text-4xl font-bold mb-4 playfair">Nossos Clientes</h3>
+                <div class="w-24 h-1 bg-beige mx-auto"></div>
+                <p class="text-beige mt-4 max-w-2xl mx-auto">O que dizem estabelecimentos que já utilizam nossas máquinas</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="bg-white bg-opacity-10 p-8 rounded-lg backdrop-blur-sm">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-star text-yellow-300 mr-1"></i>
+                        <i class="fas fa-star text-yellow-300 mr-1"></i>
+                        <i class="fas fa-star text-yellow-300 mr-1"></i>
+                        <i class="fas fa-star text-yellow-300 mr-1"></i>
+                        <i class="fas fa-star text-yellow-300"></i>
+                    </div>
+                    <p class="italic mb-6">"Optamos pela locação da Robocoffee e foi a melhor decisão. O café é excelente e o custo-benefício perfeito para nosso hotel. Recomendo a Dellafina!"</p>
+                    <p class="font-bold">- Hotel Bella Vista</p>
+                    <a href="https://wa.me/5511978483899?text=Olá%20Aguinaldo,%20quero%20conhecer%20a%20Robocoffee%20como%20o%20Hotel%20Bella%20Vista" class="text-beige text-sm mt-2 inline-block hover:underline">
+                        Quero alugar esta máquina <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <div class="bg-white bg-opacity-10 p-8 rounded-lg backdrop-blur-sm">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-star text-yellow-300 mr-1"></i>
+                        <i class="fas fa-star text-yellow-300 mr-1"></i>
+                        <i class="fas fa-star text-yellow-300 mr-1"></i>
+                        <i class="fas fa-star text-yellow-300 mr-1"></i>
+                        <i class="fas fa-star text-yellow-300"></i>
+                    </div>
+                    <p class="italic mb-6">"Comprei a Duetto e o retorno foi imediato. A máquina é robusta, produz café de altíssima qualidade e atende nosso fluxo intenso perfeitamente."</p>
+                    <p class="font-bold">- Café & Cia</p>
+                    <a href="https://wa.me/5511978483899?text=Olá%20Aguinaldo,%20quero%20comprar%20a%20Duetto%20como%20o%20Café%20%26%20Cia" class="text-beige text-sm mt-2 inline-block hover:underline">
+                        Quero comprar esta máquina <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA  -->
+    <section class="py-16 bg-gray-800 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="text-3xl md:text-4xl font-bold mb-6 playfair">Pronto para levar seu café ao próximo nível?</h3>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">Fale agora mesmo com nosso especialista Aguinaldo e descubra a melhor opção para seu negócio: venda ou locação.</p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="tel:11978483899" class="bg-transparent hover:bg-white hover:text-gray-900 text-white font-bold py-4 px-8 rounded-full transition duration-300 inline-flex items-center justify-center border border-white">
+                    <i class="fas fa-phone mr-2"></i> Ligar agora
+                </a>
+                <a href="https://wa.me/5511978483899" class="whatsapp-button text-white font-bold py-4 px-8 rounded-full transition duration-300 inline-flex items-center justify-center">
+                    <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contact" class="py-20 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto bg-gray-800 rounded-lg shadow-lg overflow-hidden border border-amber-900 border-opacity-20">
+                <div class="md:flex">
+                    <div class="md:w-1/2 p-12 bg-amber-900 text-white">
+                        <h3 class="text-3xl font-bold mb-6 playfair">Entre em contato</h3>
+                        <div class="mb-8">
+                            <h4 class="text-xl font-bold mb-4">Informações de contação</h4>
+                            <div class="flex items-start mb-4">
+                                <i class="fas fa-map-marker-alt mt-1 mr-4"></i>
+                                <p>Praça - R. Santo Antonio, 09 - sala 2<br>Cresciúma, Caieiras - SP</p>
+                            </div>
+                            <div class="flex items-center mb-4">
+                                <i class="fas fa-phone-alt mr-4"></i>
+                                <p>11 97848-3899</p>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-user mr-4"></i>
+                                <p>Fale com Aguinaldo</p>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold mb-4">Horário de atendimento</h4>
+                            <p>Segunda a Sexta: 8h às 18h<br>Sábado: 9h às 13h</p>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <a href="https://wa.me/5511978483899" class="whatsapp-button text-white font-bold py-3 px-6 rounded-full transition duration-300 inline-flex items-center justify-center w-full text-center">
+                                <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 p-12">
+                        <h3 class="text-3xl font-bold mb-6 text-white playfair">Envie uma mensagem</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label class="block text-gray-300 mb-2" for="name">Nome</label>
+                                <input type="text" id="name", class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-900 text-white">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-300 mb-2" for="phone">Telefone</label>
+                                <input type="tel" id="phone", class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-900 text-white">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-300 mb-2" for="interest">Tenho interesse em</label>
+                                <select id="interest", class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-900 text-white">
+                                    <option value="">Selecione uma opção</option>
+                                    <option value="purchase">Comprar uma máquina</option>
+                                    <option value="rental">Alugar uma máquina</option>
+                                    <option value="both">Comprar ou alugar</option>
+                                    <option value="info">Mais informações</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-300 mb-2" for="machine">Máquina de interesse</label>
+                                <select id="machine", class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-900 text-white">
+                                    <option value="">Selecione uma opção</option>
+                                    <option value="robocoffee">Italian Coffee Robocoffee</option>
+                                    <option value="duetto">Italian Coffee Duetto</option>
+                                    <option value="other">Outro modelo</option>
+                                </select>
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-gray-300 mb-2" for="message">Mensagem</label>
+                                <textarea id="message" rows="4", class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-900 text-white"></textarea>
+                            </div>
+                            <button type="submit", class="w-full bg-amber-900 hover:bg-amber-800 text-white font-bold py-3 px-4 rounded-lg transition duration-300">
+                                Enviar mensagem
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-6 md:mb-0">
+                    <div class="logo-placeholder">
+                        <img src="logo.png" alt="Dellafina Coffee Logo" class="h-12">
+                    </div>
+                    <span class="brand-name">Dellafina Coffee</span>
+                </div>
+                <div class="flex space-x-6 mb-6 md:mb-0">
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://wa.me/5511978483899" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+                <div class="text-center md:text-right">
+                    <a href="tel:11978483899" class="block text-gray-400 hover:text-white transition mb-2">
+                        <i class="fas fa-phone-alt mr-2"></i> 11 97848-3899
+                    </a>
+                    <a href="https://goo.gl/maps/example" target="_blank" class="text-gray-400 hover:text-white transition text-sm">
+                        <i class="fas fa-map-marker-alt mr-2"></i> Praça - R. Santo Antonio, 09 - Caieiras/SP
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Dellafina Coffee. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+       
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const interest = document.getElementById('interest').value;
+            const machine = document.getElementById('machine').value;
+            const message = document.getElementById('message').value;
+            
+            const interestText = {
+                'purchase': 'Comprar uma máquina',
+                'rental': 'Alugar uma máquina',
+                'both': 'Comprar ou alugar',
+                'info': 'Mais informações'
+            }[interest] || interest;
+            
+            const machineText = {
+                'robocoffee': 'Italian Coffee Robocoffee',
+                'duetto': 'Italian Coffee Duetto',
+                'other': 'Outro modelo'
+            }[machine] || machine;
+            
+            const whatsappMessage = `Olá Aguinaldo, me chamo ${name} (${phone}). Tenho interesse em ${interestText} - ${machineText}. Mensagem: ${message}`;
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            window.open(`https://wa.me/5511978483899?text=${encodedMessage}`, '_blank');
+            
+            this.reset();
+            alert('Obrigado pelo seu interesse! Você será redirecionado para o WhatsApp.');
+        });
+        
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        
+        document.querySelector('.md\\:hidden button').addEventListener('click', function() {
+            
+            alert('Menu mobile seria aberto aqui. Entre em contato pelo WhatsApp: 11 97848-3899');
+        });
+    </script>
+</body>
+</html>
